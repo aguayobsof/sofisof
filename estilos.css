@@ -246,6 +246,28 @@ textarea:focus {
     color: #666;
 }
 
+/* ===== Botón flotante de WhatsApp ===== */
+.whatsapp-flotante {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #111;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s;
+    z-index: 5;
+}
+
+.whatsapp-flotante:hover {
+    transform: scale(1.1);
+}
+
 /* ===== Visor de fotos (se abre con JavaScript) ===== */
 figure img {
     cursor: zoom-in;
