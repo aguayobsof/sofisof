@@ -45,3 +45,63 @@ menu.querySelectorAll('a').forEach(function (enlace) {
         menuBoton.setAttribute('aria-expanded', false);
     });
 });
+
+// ===== Formulario de contacto =====
+const formulario = document.querySelector('#formulario');
+
+// 7. Una función que muestra (o borra) el mensaje de error de un campo
+function mostrarError(campo, mensaje) {
+    const caja = document.querySelector('#' + campo).parentElement;
+    document.querySelector('#error-' + campo).textContent = mensaje;
+    if (mensaje) {
+        caja.classList.add('con-error');
+    } else {
+        caja.classList.remove('con-error');
+    }
+}
+
+// 8. Cuando alguien pulsa "Enviar mensaje"...
+formulario.addEventListener('submit', function (evento) {
+    // ...primero evitamos que la página se recargue
+    evento.preventDefault();
+
+    // Leemos lo que escribió la persona (trim quita los espacios sobrantes)
+    const nombre = document.querySelector('#nombre').value.trim();
+    const correo = document.querySelector('#correo').value.trim();
+    const mensaje = document.querySelector('#mensaje').value.trim();
+
+    // 9. Revisamos cada campo
+    let todoBien = true;
+
+    if (nombre === '') {
+        mostrarError('nombre', 'Por favor, escribe tu nombre.');
+        todoBien = false;
+    } else {
+        mostrarError('nombre', '');
+    }
+
+    if (!correo.includes('@') || !correo.includes('.')) {
+        mostrarError('correo', 'Revisa tu correo, parece que le falta algo.');
+        todoBien = false;
+    } else {
+        mostrarError('correo', '');
+    }
+
+    if (mensaje.length < 10) {
+        mostrarError('mensaje', 'Cuéntame un poco más (al menos 10 letras).');
+        todoBien = false;
+    } else {
+        mostrarError('mensaje', '');
+    }
+
+    // 10. Si todo está bien, preparamos el correo y lo abrimos
+    if (todoBien) {
+        const asunto = 'Consulta desde la web de ' + nombre;
+        const cuerpo = mensaje + '\n\n' + nombre + '\n' + correo;
+        window.location.href = 'mailto:sofializ@gmail.com'
+            + '?subject=' + encodeURIComponent(asunto)
+            + '&body=' + encodeURIComponent(cuerpo);
+        document.querySelector('#gracias').textContent = '¡Gracias, ' + nombre + '! Se abrirá tu correo con el mensaje listo para enviar.';
+        formulario.reset();
+    }
+});

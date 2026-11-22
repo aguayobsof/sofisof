@@ -71,7 +71,26 @@
         <section id="contacto">
             <h2>Contacto</h2>
             <p class="llamada">¿Tienes un proyecto en mente? Escríbeme.</p>
-            <p><a href="mailto:sofializ@gmail.com">sofializ@gmail.com</a></p>
+            <form id="formulario" class="formulario" novalidate>
+                <div class="campo">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre">
+                    <p class="error" id="error-nombre"></p>
+                </div>
+                <div class="campo">
+                    <label for="correo">Correo</label>
+                    <input type="email" id="correo" name="correo">
+                    <p class="error" id="error-correo"></p>
+                </div>
+                <div class="campo">
+                    <label for="mensaje">Cuéntame sobre tu proyecto</label>
+                    <textarea id="mensaje" name="mensaje" rows="5"></textarea>
+                    <p class="error" id="error-mensaje"></p>
+                </div>
+                <button type="submit" class="boton">Enviar mensaje</button>
+                <p class="gracias" id="gracias"></p>
+            </form>
+            <p class="correo-directo">O escríbeme directamente a <a href="mailto:sofializ@gmail.com">sofializ@gmail.com</a></p>
         </section>
     </main>
 

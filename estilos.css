@@ -167,6 +167,85 @@ footer {
     color: #666;
 }
 
+/* ===== Formulario de contacto ===== */
+.formulario {
+    max-width: 640px;
+    margin-top: 32px;
+}
+
+.campo {
+    margin-bottom: 24px;
+}
+
+label {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+input,
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 19px;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #111;
+    background: transparent;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-bottom-width: 2px;
+}
+
+.campo.con-error input,
+.campo.con-error textarea {
+    border-bottom-color: #b00020;
+}
+
+.error {
+    color: #b00020;
+    font-size: 15px;
+    margin: 6px 0 0;
+    min-height: 1em;
+}
+
+.boton {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 16px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: white;
+    background-color: #111;
+    border: 1px solid #111;
+    padding: 14px 32px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.boton:hover {
+    background-color: white;
+    color: #111;
+}
+
+.gracias {
+    margin-top: 16px;
+}
+
+.correo-directo {
+    margin-top: 32px;
+    font-size: 16px;
+    color: #666;
+}
+
 /* ===== Visor de fotos (se abre con JavaScript) ===== */
 figure img {
     cursor: zoom-in;
