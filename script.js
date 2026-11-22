@@ -106,6 +106,3 @@ formulario.addEventListener('submit', function (evento) {
     }
 });
 
-// 11. El botón flotante abre WhatsApp con un saludo
-document.querySelector('#whatsapp-flotante').href =
-    'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent('Hola Sofía, vi tu página web y quisiera consultarte sobre un proyecto.');
