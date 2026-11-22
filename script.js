@@ -1,3 +1,6 @@
+// ===== Tu número de WhatsApp (código de país + número, sin espacios ni signos) =====
+const WHATSAPP = '595968908191';
+
 // 1. Buscamos en la página los elementos que vamos a usar
 const fotos = document.querySelectorAll('figure img');
 const visor = document.querySelector('#visor');
@@ -94,14 +97,15 @@ formulario.addEventListener('submit', function (evento) {
         mostrarError('mensaje', '');
     }
 
-    // 10. Si todo está bien, preparamos el correo y lo abrimos
+    // 10. Si todo está bien, abrimos WhatsApp con el mensaje ya escrito
     if (todoBien) {
-        const asunto = 'Consulta desde la web de ' + nombre;
-        const cuerpo = mensaje + '\n\n' + nombre + '\n' + correo;
-        window.location.href = 'mailto:sofializ@gmail.com'
-            + '?subject=' + encodeURIComponent(asunto)
-            + '&body=' + encodeURIComponent(cuerpo);
-        document.querySelector('#gracias').textContent = '¡Gracias, ' + nombre + '! Se abrirá tu correo con el mensaje listo para enviar.';
+        const texto = 'Hola Sofía, soy ' + nombre + ' (' + correo + ').\n\n' + mensaje;
+        window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(texto), '_blank');
+        document.querySelector('#gracias').textContent = '¡Gracias, ' + nombre + '! Se abrirá WhatsApp con tu mensaje listo para enviar.';
         formulario.reset();
     }
 });
+
+// 11. El botón flotante abre WhatsApp con un saludo
+document.querySelector('#whatsapp-flotante').href =
+    'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent('Hola Sofía, vi tu página web y quisiera consultarte sobre un proyecto.');
