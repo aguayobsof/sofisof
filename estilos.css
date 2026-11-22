@@ -1,4 +1,8 @@
 /* ===== Base: colores y letras de todo el sitio ===== */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'EB Garamond', Georgia, serif;
     font-size: 19px;
@@ -161,6 +165,31 @@ footer {
     margin-top: 96px;
     font-size: 14px;
     color: #666;
+}
+
+/* ===== Visor de fotos (se abre con JavaScript) ===== */
+figure img {
+    cursor: zoom-in;
+}
+
+.visor {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+}
+
+.visor.abierto {
+    display: flex;
+}
+
+.visor img {
+    max-width: 90%;
+    max-height: 90%;
 }
 
 /* ===== Celular: pantallas de menos de 800px ===== */
