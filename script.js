@@ -1,5 +1,5 @@
 // ===== Tu número de WhatsApp (código de país + número, sin espacios ni signos) =====
-const WHATSAPP = '595968908191';
+const WHATSAPP = '595986908191';
 
 // 1. Buscamos en la página los elementos que vamos a usar
 const fotos = document.querySelectorAll('figure img');
