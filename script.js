@@ -23,3 +23,25 @@ document.addEventListener('keydown', function (evento) {
         visor.classList.remove('abierto');
     }
 });
+
+// ===== Menú de hamburguesa (celular) =====
+const menuBoton = document.querySelector('#menu-boton');
+const menu = document.querySelector('#menu');
+
+// 5. Al tocar el botón, el menú se abre o se cierra
+menuBoton.addEventListener('click', function () {
+    menu.classList.toggle('abierto');
+    menuBoton.classList.toggle('abierto');
+
+    const estaAbierto = menu.classList.contains('abierto');
+    menuBoton.setAttribute('aria-expanded', estaAbierto);
+});
+
+// 6. Al elegir una opción del menú, se cierra solo
+menu.querySelectorAll('a').forEach(function (enlace) {
+    enlace.addEventListener('click', function () {
+        menu.classList.remove('abierto');
+        menuBoton.classList.remove('abierto');
+        menuBoton.setAttribute('aria-expanded', false);
+    });
+});

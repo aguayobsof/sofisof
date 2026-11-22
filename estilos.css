@@ -192,12 +192,59 @@ figure img {
     max-height: 90%;
 }
 
+/* ===== Botón de hamburguesa (solo se ve en el celular) ===== */
+.menu-boton {
+    display: none;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.menu-boton span {
+    display: block;
+    width: 26px;
+    height: 1px;
+    background-color: #111;
+    margin: 7px 0;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Cuando el menú está abierto, las 3 rayitas se convierten en una X */
+.menu-boton.abierto span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-boton.abierto span:nth-child(2) {
+    opacity: 0;
+}
+.menu-boton.abierto span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 /* ===== Celular: pantallas de menos de 800px ===== */
 @media (max-width: 800px) {
     body {
         padding: 24px 16px 48px;
     }
-    header,
+    header {
+        flex-wrap: wrap;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    .menu-boton {
+        display: block;
+    }
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 24px;
+    }
+    nav.abierto {
+        display: flex;
+    }
     .portada-texto,
     .sobre-mi-contenido {
         flex-direction: column;
@@ -206,7 +253,7 @@ figure img {
     }
     nav a {
         margin-left: 0;
-        margin-right: 20px;
+        font-size: 20px;
     }
     .portada img {
         height: 320px;
